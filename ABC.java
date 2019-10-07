@@ -15,7 +15,6 @@ public class ABC {
                      try {
                          Thread.sleep(1000);
 
-
                          while (currentLetter!='A') {
                              lock.wait();
                          }
@@ -28,55 +27,40 @@ public class ABC {
                      }catch(InterruptedException e){
                          e.printStackTrace();
                      }
-
-
                  }
              }
          };
-
 
          b = () -> {
              synchronized (lock){
                  for (int loop=0; loop<5; loop++) {
 
-
                      try {
                          Thread.sleep(1000);
-
 
                          while (currentLetter!='B') {
                              lock.wait();
                          }
-
                          System.out.print("B");
-
                          currentLetter = 'C';
-
                          lock.notifyAll();
 
                      }catch(InterruptedException e){
                          e.printStackTrace();
                      }
-
-
                  }
              }
          };
-
-
 
          c = () -> {
              synchronized (lock){
 
                  for (int loop=0; loop<5; loop++) {
-
-                  //   try {
+                     //   try {
                     //     lock.wait();
                   //   } catch (InterruptedException e) {
                    //      e.printStackTrace();
                    //  }
-
-
 
                      try {
                          Thread.sleep(1000);
@@ -95,8 +79,6 @@ public class ABC {
                      }catch(InterruptedException e){
                          e.printStackTrace();
                      }
-
-
                  }
              }
          };
